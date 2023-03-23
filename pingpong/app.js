@@ -102,6 +102,7 @@ ssamgoo.style.height = String(ballHeight)+"px";
 let dx = 2;
 let dy = 2;
 
+let gameover = 0
 
 // 공 움직이는 함수
 function moveImage() {
@@ -142,7 +143,11 @@ function moveImage() {
     win.style.display = "unset"
     lose.style.display = "unset"
 
-    audio_gameover.play()
+    gameover = gameover + 1
+
+    if (gameover === 1) {
+      audio_gameover.play()
+    }
   }
   else if (x <= 0) {
     dx = 0
@@ -152,10 +157,14 @@ function moveImage() {
     lose.style.left = "20%"
     win.style.display = "unset"
     lose.style.display = "unset"
-    
-    audio_gameover.play()
-  }
 
+    gameover = gameover + 1
+    
+    if (gameover === 1) {
+      audio_gameover.play()
+    }
+  }
+  console.log(gameover)
   ssamgoo.style.top = y + "px";
   ssamgoo.style.left = x + "px";
 }
