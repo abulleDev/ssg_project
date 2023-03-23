@@ -4,7 +4,7 @@ const leftBar = document.getElementById("leftBar")
 const rightBar = document.getElementById("rightBar")
 
 const audio_boing = new Audio("boing.mp3")
-const audio_tick = new Audio("tack.mp3")
+const audio_tick = new Audio("tick.mp3")
 
 
 
