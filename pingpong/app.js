@@ -3,8 +3,12 @@ const bar = document.getElementsByClassName("bar")
 const leftBar = document.getElementById("leftBar")
 const rightBar = document.getElementById("rightBar")
 
+const win = document.getElementById("win")
+const lose =document.getElementById("lose")
+
 const audio_boing = new Audio("boing.mp3")
 const audio_tick = new Audio("tick.mp3")
+const audio_gameover = new Audio("gameover.mp3")
 
 
 
@@ -86,7 +90,6 @@ setInterval(() => {
 
 
 
-
 // 이미지 요소 설정
 ssamgoo.style.position = "fixed";
 ssamgoo.style.left = String(window.innerWidth/2-ballWidth/2)+"px";
@@ -99,6 +102,7 @@ ssamgoo.style.height = String(ballHeight)+"px";
 let dx = 2;
 let dy = 2;
 
+let gameover = 0
 
 // 공 움직이는 함수
 function moveImage() {
@@ -130,6 +134,37 @@ function moveImage() {
     audio_tick.play();
   }
 
+  if (x + ssamgoo.width >= window.innerWidth) {
+    dx = 0
+    dy = 0
+
+    win.style.left = "20%"
+    lose.style.right = "20%"
+    win.style.display = "unset"
+    lose.style.display = "unset"
+
+    gameover = gameover + 1
+
+    if (gameover === 1) {
+      audio_gameover.play()
+    }
+  }
+  else if (x <= 0) {
+    dx = 0
+    dy = 0
+
+    win.style.right = "20%"
+    lose.style.left = "20%"
+    win.style.display = "unset"
+    lose.style.display = "unset"
+
+    gameover = gameover + 1
+    
+    if (gameover === 1) {
+      audio_gameover.play()
+    }
+  }
+  console.log(gameover)
   ssamgoo.style.top = y + "px";
   ssamgoo.style.left = x + "px";
 }
