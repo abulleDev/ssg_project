@@ -2,6 +2,16 @@ body {
     background-color: #f2f1f1;
 }
 
+p {
+    font-family: 'GyeonggiCheonnyeon';
+}
+
+a {
+    text-decoration-line: none;
+    font-size: 25px;
+    color: black;
+}
+
 .container {
     margin-left: 10%;
     margin-right: 10%;
@@ -22,4 +32,9 @@ body {
 
 .item > a > img {
     width: 180px;
+}
+
+@font-face {
+    font-family: "GyeonggiCheonnyeon";
+    src: url("./fonts/woff/Title_Medium.woff") format('woff');
 }
