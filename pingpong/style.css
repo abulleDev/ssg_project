@@ -30,3 +30,27 @@ body {
     position: absolute;
     display: none;
 }
+
+#gameover_img {
+    position: absolute;
+    display: none;
+    width: 30%;
+    top: 15%;
+    left: 35%;
+}
+
+#gameover_img > img {
+    width: 100%;
+}
+
+#reset_img {
+    position: absolute;
+    display: none;
+    width: 15%;
+    top: 60%;
+    left: 42.5%;
+}
+
+#reset_img > a > img {
+    width: 100%;
+}

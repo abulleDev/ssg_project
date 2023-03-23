@@ -4,7 +4,9 @@ const leftBar = document.getElementById("leftBar")
 const rightBar = document.getElementById("rightBar")
 
 const win = document.getElementById("win")
-const lose =document.getElementById("lose")
+const lose = document.getElementById("lose")
+const gameover_img = document.getElementById("gameover_img")
+const reset_img = document.getElementById("reset_img")
 
 const audio_boing = new Audio("boing.mp3")
 const audio_tick = new Audio("tick.mp3")
@@ -142,6 +144,8 @@ function moveImage() {
     lose.style.right = "20%"
     win.style.display = "unset"
     lose.style.display = "unset"
+    gameover_img.style.display = "unset"
+    reset_img.style.display = "unset"
 
     gameover = gameover + 1
 
@@ -157,11 +161,14 @@ function moveImage() {
     lose.style.left = "20%"
     win.style.display = "unset"
     lose.style.display = "unset"
+    gameover_img.style.display = "unset"
+    reset_img.style.display = "unset"
 
     gameover = gameover + 1
     
     if (gameover === 1) {
       audio_gameover.play()
+      
     }
   }
   console.log(gameover)
@@ -169,11 +176,5 @@ function moveImage() {
   ssamgoo.style.left = x + "px";
 }
 
-// 일정 간격으로 이미지 위치 변경   
+// 일정 시간마다 공 위치 변경   
 setInterval(moveImage, 1);
-
-
-// 화면 클릭 시 스크린세이버 종료
-// document.addEventListener("click", function() {
-//     ssamgoo.remove();
-// });
