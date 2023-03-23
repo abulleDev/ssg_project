@@ -3,8 +3,12 @@ const bar = document.getElementsByClassName("bar")
 const leftBar = document.getElementById("leftBar")
 const rightBar = document.getElementById("rightBar")
 
+const win = document.getElementById("win")
+const lose =document.getElementById("lose")
+
 const audio_boing = new Audio("boing.mp3")
 const audio_tick = new Audio("tick.mp3")
+const audio_gameover = new Audio("gameover.mp3")
 
 
 
@@ -86,7 +90,6 @@ setInterval(() => {
 
 
 
-
 // 이미지 요소 설정
 ssamgoo.style.position = "fixed";
 ssamgoo.style.left = String(window.innerWidth/2-ballWidth/2)+"px";
@@ -128,6 +131,29 @@ function moveImage() {
     dy = -dy;
     y += 2 * dy;
     audio_tick.play();
+  }
+
+  if (x + ssamgoo.width >= window.innerWidth) {
+    dx = 0
+    dy = 0
+
+    win.style.left = "20%"
+    lose.style.right = "20%"
+    win.style.display = "unset"
+    lose.style.display = "unset"
+
+    audio_gameover.play()
+  }
+  else if (x <= 0) {
+    dx = 0
+    dy = 0
+
+    win.style.right = "20%"
+    lose.style.left = "20%"
+    win.style.display = "unset"
+    lose.style.display = "unset"
+    
+    audio_gameover.play()
   }
 
   ssamgoo.style.top = y + "px";

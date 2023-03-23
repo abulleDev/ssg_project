@@ -25,3 +25,8 @@ body {
     object-fit: fill;
 }
 
+
+.winOrLose {
+    position: absolute;
+    display: none;
+}
