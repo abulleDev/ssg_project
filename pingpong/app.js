@@ -92,8 +92,8 @@ ssamgoo.style.height = String(ballHeight)+"px";
 
 
 // 이미지가 움직이는 방향을 결정하는 변수
-let dx = 1;
-let dy = 1;
+let dx = 2;
+let dy = 2;
 
 // 공 움직이는 함수
 function moveImage() {
@@ -103,13 +103,13 @@ function moveImage() {
   y += dy;
 
   // 공이 막대에 닿으면 튕겨나오도록 함
-  if (x + ssamgoo.width === rightBarBorder) {
+  if (x + ssamgoo.width <= rightBarBorder+3 && x + ssamgoo.width >= rightBarBorder) {
     if ((rightBarButtom >= y + ballHeight && y + ballHeight >= rightBarTop) || (rightBarButtom >= y && y >= rightBarTop)) {
       dx = -Math.abs(dx);
       x += 2 * dx;
     }
   }
-  if (x === leftBarBorder+30) {
+  if (x <= leftBarBorder+30 && x >= leftBarBorder+27) {
     if ((leftBarButtom >= y + ballHeight && y + ballHeight >= leftBarTop) || (leftBarButtom >= y && y >= leftBarTop)) {
       dx = Math.abs(dx);
       x += 2 * dx;
