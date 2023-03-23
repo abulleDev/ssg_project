@@ -15,3 +15,7 @@
     align-items: center;
     width: 300px;
 }
+
+.item > a > img {
+    width: 180px;
+}
