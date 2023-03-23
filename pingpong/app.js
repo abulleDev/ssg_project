@@ -3,6 +3,10 @@ const bar = document.getElementsByClassName("bar")
 const leftBar = document.getElementById("leftBar")
 const rightBar = document.getElementById("rightBar")
 
+const audio_boing = new Audio("boing.mp3")
+const audio_tick = new Audio("tack.mp3")
+
+
 
 // 공 크기 설정
 const ballWidth = 80
@@ -95,6 +99,7 @@ ssamgoo.style.height = String(ballHeight)+"px";
 let dx = 2;
 let dy = 2;
 
+
 // 공 움직이는 함수
 function moveImage() {
   let x = parseInt(ssamgoo.style.left);
@@ -107,12 +112,14 @@ function moveImage() {
     if ((rightBarButtom >= y + ballHeight && y + ballHeight >= rightBarTop) || (rightBarButtom >= y && y >= rightBarTop)) {
       dx = -Math.abs(dx);
       x += 2 * dx;
+      audio_boing.play();
     }
   }
   if (x <= leftBarBorder+30 && x >= leftBarBorder+27) {
     if ((leftBarButtom >= y + ballHeight && y + ballHeight >= leftBarTop) || (leftBarButtom >= y && y >= leftBarTop)) {
       dx = Math.abs(dx);
       x += 2 * dx;
+      audio_boing.play();
     }
   }
 
@@ -120,6 +127,7 @@ function moveImage() {
   if (y + ssamgoo.height >= window.innerHeight || y <= 0) {
     dy = -dy;
     y += 2 * dy;
+    audio_tick.play();
   }
 
   ssamgoo.style.top = y + "px";
