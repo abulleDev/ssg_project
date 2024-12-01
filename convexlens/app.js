@@ -54,7 +54,7 @@ canvas.addEventListener('touchmove', (e) => {
   const { left, top, width, height } = canvas.getBoundingClientRect();
   const x = (e.touches[0].clientX - left) * (canvas.width / width);
   const y = (e.touches[0].clientY - top) * (canvas.height / height);
-  setPosition({ x, y, radius: lensConfig.radius });
+  setLensConfig({ x, y, radius: lensConfig.radius });
 });
 
 let fileName = 'canvas';
