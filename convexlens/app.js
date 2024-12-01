@@ -33,13 +33,13 @@ function setLensConfig(config) {
 }
 setLensConfig(lensConfig);
 
-x.addEventListener('change', (e) =>
+x.addEventListener('input', (e) =>
   setLensConfig({ ...lensConfig, x: +e.target.value })
 );
-y.addEventListener('change', (e) =>
+y.addEventListener('input', (e) =>
   setLensConfig({ ...lensConfig, y: +e.target.value })
 );
-radius.addEventListener('change', (e) =>
+radius.addEventListener('input', (e) =>
   setLensConfig({ ...lensConfig, radius: +e.target.value })
 );
 
